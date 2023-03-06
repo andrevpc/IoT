@@ -1,26 +1,22 @@
 #include <FirebaseESP32.h>
 #include <WiFi.h>
 #include <dht.h>
-#include <LiquidCrystal.h>
+#include <LiquidCrystal.h> //https://www.circuitschools.com/interfacing-16x2-lcd-module-with-esp32-with-and-without-i2c/
 
-const char WIFI_SSID[] = "Vivo-Internet-BF17";
-const char WIFI_PASSWORD[] = "78814222";
-const char FIREBASE_HOST[] = "https://iot-tds2-default-rtdb.firebaseio.com/"; // URL acima do console de dados
-const char FIREBASE_AUTH[] = "mqMcwIUOIHH79GyoCkmBkZAU9C87LBPI0ran7xgY"; // Configurações do projeto > Contas de serviço > Chaves secretas do banco de dados > Copiar chave secreta
+const char WIFI_SSID[] = "Vivo-Internet-BF17"; //Vivo-Internet-BF17
+const char WIFI_PASSWORD[] = "78814222"; //78814222
+const char FIREBASE_HOST[] = "https://teste-1cdf0-default-rtdb.firebaseio.com/"; // URL acima do console de dados
+const char FIREBASE_AUTH[] = "Qh4s7DBwnmBliJwqO07fysRVkl4x8ukC3TUdikpG"; // Configurações do projeto > Contas de serviço > Chaves secretas do banco de dados > Copiar chave secreta
 FirebaseData firebaseData;
 FirebaseJson json;
 LiquidCrystal lcd(19, 23, 18, 17, 16, 15);
 dht DHT;
-int hum = 0;
-int tem = 0;
 
 void setup() { 
   Serial.begin(115200);
   
   lcd.begin(16, 2);
   DHT.read11(22);
-  hum = DHT.humidity;
-  tem = DHT.temperature;
   
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   while (WiFi.status() != WL_CONNECTED)
@@ -38,10 +34,7 @@ void setup() {
 
 void loop() {
   DHT.read11(22);
-  if(hum != DHT.humidity || tem != DHT.temperature)
-  {
-    lcd.clear();
-  }
+  lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Umidade: ");
   lcd.print(DHT.humidity);
@@ -51,5 +44,5 @@ void loop() {
   json.set("/temperatura", DHT.temperature);
   json.set("/umidade", DHT.humidity);
   Firebase.updateNode(firebaseData, "/andre/Sensor", json);
-
+  delay(1000);
 }
