@@ -1,0 +1,79 @@
+Eletronica::
+Analógica: Tensão de 0 a 5 volts (numeros quebrados)
+Digital: Linguagem de maquina (0 ou 1)
+
+Três componentes necessários (mínimos) para o sistema existir:
+Fonte de alimentação, Dispositivo de saída e Condutores
+Mas assim ele ficamuito simples, normalmente tem outro componente:
+Dispositivo de entrada
+
+Níveis lógicos::
+Duas possibilidades (HIGH ou LOW)
+Lógica positiva: O nivel lógico 0 é representado eletricamente por uma tensão de 0V, já o 1 é uma tensão de 5V
+Lógica negativa é o contrario
+
+Transistores: ao invés do sistema de válvulas, que deixava o computador muito grande, hoje usamos os transistores (portas lógicas) (1 nanometro cada)
+
+Dentro da lógica positiva temos duas famílias::
+Família TTL: usam transistores bipolares (não aguentam alta velocidade e gastam muita energia)
+Família CMOS: consumo elétrico mais baixo e mais fácil de estragar
+Ambas tem uma "Margem de erro"
+Entrada TTL: 0 = (0V-0,8V) 1 = (2V-5V)
+Saida TTL: 0 = (0V-0,4V) 1 = (2,7V-5V)
+CMOS: 0 = (0V-1,5V) 1 = (3V-5V)
+
+Semicondutores: mudam de isolantes para condutores facilmente
+Ânodo: eletrodo carregado positivamente
+Cátodo: eletrodo carregado negativamente
+
+Componentes::
+Diodo: componente eletrônico que permite a passagem de elétrons por apenas um sentido (como uma válvula)
+
+LED: transforma energia elétrica em luz, eles são diodos que quando percorridas por uma corrente elétrica acendem
+
+Fontes de alimentação::
+São conversores de energia elétrica (alternada para continua)
+Fontes lineares: é ligada na tomada (110V ou 220V) e transforma de alternada para continua, sendo esse especifico para uma tensão de 60Hz, a tensão é reduzida para atingir a continua, muito pesada
+Fontes chaveadas: baixo volume e peso e o rendimento bem maior (chega em 89%, a outra não passa de 50%)
+
+Organização de computadores - Memórias::
+RAM: perde ao reiniciar, mais próxima do processador, mais rápida, lê e executa e é não sequencial
+-DRAM: Utiliza carga de capacitores (armazena tensão por um tempo curto), usada na memória principal
+-SRAM: Utiliza o sistema Flip-Flops, usada na memória Cache
+
+HD: fica na maquina, mais capacidade
+Operações: Armazenar, escrever, recuperar e ler
+
+IMPORTANTE
+Não volatil: ROM,FLASH
+Volátil: RAM
+
+Memória cache(L1, L2, L3)::
+L1 sendo mais proximo do processador, o processador é muito mais rápido que a memória RAM, então o processador sai "a procura" do dado armazenado, assim ele vai indo de level em level e se não achar lá, ele vai até a RAM
+
+Memória ROM::
+Conteúdo não pode ser alterada, salva a bios (ela que chama o sistema operacional e indica o que deve ser feito ao ligar)
+PROM: pode ser escrita por meio de eletricidade depois de fabricada, mas apenas uma vez
+EPROM: pode ser reescrita, mas deve-se apagar tudo por meio de radiação ultravioleta
+EEPROM: Pode alterar bytes específicos
+
+Memória Flash::
+Não volatil, exs.: pendrive e SSDs
+
+Sistemas embarcados::
+Processador usados para automatizar as coisas (IoT)
+
+Duas vertentes
+Microprocessadores:: ex: Raspberry Pi
+ele é o cerebro, pega as informações da memória e fala o que deve ser feito (base de sílicio), processador pequeno (CPU, ULA, UC), precisa de memória
+Microcontrolador:: exs: arduino, esp32
+Já vem com um proposito especifico, e tá tudo dentro dele, usa as I/O Ports para entrada e saida de informações, RAM, ROM
+
+Sistemas computacionais::
+RISC x CISC
+Instruções imbutidas no processador de como ligar o computador
+RISC: Tem tamanho padrão de instruções, então divide instruções grandes em menores (executadas em um ciclo de clock)
+CISC: precisa de vários ciclos de relógio para serem executados, precisa de acesso a memória para ser executado e facilita a vida dos programadores
+
+Pipeline::
+Paralelismo de instruções: mais de uma instrução ao mesmo tempo, por partes diferentes do processador (cores diferentes) (Fordismo)
