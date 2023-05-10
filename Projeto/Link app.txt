@@ -1,1 +1,2 @@
-http://ai2.appinventor.mit.edu/#4860028379856896
+App: http://ai2.appinventor.mit.edu/#4860028379856896
+Modelo 3D: https://www.thingiverse.com/thing:1015238
